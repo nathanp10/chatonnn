@@ -17,10 +17,14 @@
                 <td>
                     <a href="{{ path("app_categories_modifier", {"id": c.id}) }}" class="btn btn-primary">modifier</a>
                     <a href="{{ path("app_categories_supprimer", {"id": c.id}) }}" class="btn btn-danger">supprimer</a>
+
                     <a href="{{path("app_chatons_voir",{"idCategorie":c.id})}}" class="btn btn-warning">chatons</a>
+
                 </td>
             </tr>
         {% endfor %}
     </table>
+
     <a href="{{path("app_categories_ajouter")}}" class="btn btn-success">Ajouter une catégorie</a>
+    <a href="{{path("app_proprietaires_voir",)}}" class="btn btn-secondary">Ajouter un proprio</a>
 {% endblock %}

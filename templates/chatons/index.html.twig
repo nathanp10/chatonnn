@@ -18,6 +18,9 @@
                     <div class="card-body">
                         <h2 class="card-title">{{ c.nom }}</h2>
                     </div>
+                    {% for p in c.proprietaires %}
+                        {{ p.nom }}
+                    {% endfor %}
                 </div>
             </div>
         {% endfor %}

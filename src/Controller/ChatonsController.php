@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Categorie;
 use App\Entity\Chaton;
+use App\Entity\Proprietaires;
 use App\Form\ChatonType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +20,12 @@ class ChatonsController extends AbstractController
     public function index($idCategorie, ManagerRegistry $doctrine): Response
     {
         $categorie = $doctrine->getRepository(Categorie::class)->find($idCategorie);
+        $proprietaires = $doctrine->getRepository(Proprietaires::class);
         //si on n'a rien trouvé -> 404
         if (!$categorie) {
             throw $this->createNotFoundException("Aucune catégorie avec l'id $idCategorie");
         }
+
 
         return $this->render('chatons/index.html.twig', [
             'categorie' => $categorie,
